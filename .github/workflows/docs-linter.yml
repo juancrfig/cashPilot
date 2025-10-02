@@ -1,0 +1,28 @@
+name: Docs Linter  # The workflow's name
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'docs/**.md' # Only run if markdown files in docs/ change
+
+jobs:
+  lint-docs:
+    name: Check Markdown Formatting and Spelling
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull repository
+        uses: actions/checkout@v3
+
+      - name: Run markdownlint
+        uses: avto-dev/markdown-lint@v1
+        with:
+          args: './docs/*.md' # Tell the linter to check  all .md files in /docs
+
+      - name: Run codespell
+        uses: codespell-project/actions-codespell@v2
+        with:
+          check_filenames: true
+          skip: ".git"
+          path: ./docs
+          ignore_words_file: .codespellignore

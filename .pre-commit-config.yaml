@@ -1,0 +1,17 @@
+repos:
+  # Markdown linting with autofix
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.45.0
+    hooks:
+      - id: markdownlint
+        args: [--fix]  # auto-fix spacing, style issues
+        files: \.md$
+
+  # Spell checking with codespell
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        args: ["--ignore-words=.codespellignore"]
+        files: \.md$
+
