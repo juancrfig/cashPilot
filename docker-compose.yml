@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database Service
+  db:
+    image: postgres:16-alpine
+    container_name: local-postgres-db
+    environment:
+      POSTGRES_USER: cashPilot
+      POSTGRES_PASSWORD: cashPassword
+      POSTGRES_DB: cashDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cashPilot -d cashDB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+# -----------------------------------
+# Go Backend Service (for development)
+
+  backend:
+    container_name: go-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/app
+    environment:
+      DB_SOURCE: "postgresql://cashPilot:cashPassword@db:5432/cashDB?sslmode=disable"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # --------------------------------------
+  # Next.js Frontend Service (for development)
+
+  frontend:
+    container_name: nextjs-frontend-dev
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "300:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+
+volumes:
+  postgres-data:
+    
