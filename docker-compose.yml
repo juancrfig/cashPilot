@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # PostgreSQL Database Service
   db:
@@ -46,7 +44,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.dev
     ports:
-      - "300:3000"
+      - "3000:3000"
     volumes:
       - ./frontend:/app
       - /app/node_modules
