@@ -15,7 +15,7 @@ export default function Signup() {
   
   const router = useRouter();
 
-  const handlelogin = async () => {
+  const handleSignup = async () => {
     if (!name || !email || !password || !confirm) {
       Swal.fire({
         title: "Oops 😢",
@@ -48,8 +48,8 @@ export default function Signup() {
         if (usuario == undefined) {
           // recordad que aqui debo agregar el post cuando este la base de datos
           Swal.fire({
-            title: `Welcome back ${usuario.username}!`,
-            text: "Signup in, please wait...",
+            title: `Welcome ${name}!`,
+            text: "Signing up, please wait...",
             icon: "success",
             allowOutsideClick: false,
             allowEscapeKey: false,
@@ -99,15 +99,15 @@ export default function Signup() {
               <div className="flex">
                 <div className="pr-10 pt-1 w-[20vw]">
                   <h1 className="text-5xl ml-5 text-left mb-4">Password</h1>
-                  <input placeholder="**********" type="text" name="" id="PasswordInput"  onChange={(e) => setPassword(e.target.value)} className="mb-4 placeholder:opacity-40 text-5xl w-full py-3 px-6 bg-[#12193A] rounded-4xl"/>
+                  <input placeholder="**********" type="password" name="" id="PasswordInput"  onChange={(e) => setPassword(e.target.value)} className="mb-4 placeholder:opacity-40 text-5xl w-full py-3 px-6 bg-[#12193A] rounded-4xl"/>
                 </div>
                 <div className="pl-1 pt-1 w-[21vw]">
                   <h1 className="text-5xl text-left mb-4 ml-5">Confirm</h1>
-                  <input placeholder="**********" type="text" name="" id="ConfirmInput"  onChange={(e) => setConfirm(e.target.value)} className="mb-3 placeholder:opacity-40 text-5xl w-full py-3 px-6 bg-[#12193A] rounded-4xl"/>
+                  <input placeholder="**********" type="password" name="" id="ConfirmInput"  onChange={(e) => setConfirm(e.target.value)} className="mb-3 placeholder:opacity-40 text-5xl w-full py-3 px-6 bg-[#12193A] rounded-4xl"/>
                 </div>
               </div>
               <h1 className="mt-5 mb-4 text-2xl ml-5">¿Ya tienes cuenta?, Inicia Sesión <Link href="/" className="text-[#0067FE] underline hover:text-[#3399FF]">Aquí</Link>.</h1>
-              <button onClick={handlelogin} className="px-15 text-5xl border-[#0067FE] border-2 p-2 rounded-full bg-[#0067FE]">Signup</button>
+              <button onClick={handleSignup} className="px-15 text-5xl border-[#0067FE] border-2 p-2 rounded-full bg-[#0067FE]">Signup</button>
           </div>
       </section>
     </div>
