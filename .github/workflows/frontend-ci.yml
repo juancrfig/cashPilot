@@ -1,0 +1,32 @@
+name: Next.js CI Workflow
+
+on: 
+  push:
+    branches: [ "master", "main", "docker", "frontend" ]
+    paths:
+      - 'frontend/**'
+    pull_request:
+      branches: [ "master", "main", "docker", "frontend" ]
+      paths:
+        - 'frontend/**'
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          node-version: '20'
+
+      - name: Set working-directory
+        run: cd frontend
+
+      - name: Install Dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Build Next.js App
+        working-directory: ./frontend
+        run: npm run build
