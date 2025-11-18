@@ -48,8 +48,8 @@ export default function Signup() {
         if (usuario == undefined) {
           // recordad que aqui debo agregar el post cuando este la base de datos
           Swal.fire({
-            title: `Welcome ${name}!`,
-            text: "Signing up, please wait...",
+            title: `Welcome back!`,
+            text: "Signup in, please wait...",
             icon: "success",
             allowOutsideClick: false,
             allowEscapeKey: false,
