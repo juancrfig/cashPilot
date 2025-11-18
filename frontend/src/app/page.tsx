@@ -85,7 +85,7 @@ export default function Home() {
             <h1 className="text-5xl mb-4 ml-5 ">Email</h1>
             <input placeholder="name@email.com" type="text" name="" id="EmailInput" onChange={(e) => setEmail(e.target.value)} className="mb-4 placeholder:opacity-40 text-5xl w-full py-3 px-6 bg-[#12193A] rounded-4xl"/>
             <h1 className="text-5xl ml-5 text-left mb-4">Password</h1>
-            <input placeholder="**********" type="text" name="" id="PasswordInput"  onChange={(e) => setPassword(e.target.value)} className="mb-4 placeholder:opacity-40 text-5xl w-full py-3 px-6 bg-[#12193A] rounded-4xl"/>
+            <input placeholder="**********" type="password" name="" id="PasswordInput"  onChange={(e) => setPassword(e.target.value)} className="mb-4 placeholder:opacity-40 text-5xl w-full py-3 px-6 bg-[#12193A] rounded-4xl"/>
             <h1 className="mt-5 mb-4 text-2xl ml-5">¿No tienes cuenta?, Registrate <Link href="/Signup" className="text-[#0067FE] underline hover:text-[#3399FF]">Aquí</Link>.</h1>
             <button onClick={handlelogin} className="px-15 text-5xl border-[#0067FE] border-2 p-2 rounded-full bg-[#0067FE]">Login</button>
           </div>
