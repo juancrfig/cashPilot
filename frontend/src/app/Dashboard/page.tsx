@@ -70,9 +70,13 @@ export default function Signup() {
   return (
     <div>
       <header>
-        <div className="flex m-7 ml-[4.5vw] mb-2" >
-          <img src="./logo.png" alt="" /> 
-          <h1 className="text-6xl pt-4 pl-7">Dashboard</h1>
+        <div className="flex items-center justify-between m-7 ml-[4.5vw] mb-2">
+          <div className="flex items-center">
+            <img src="./logo.svg" alt="" />
+            <h1 className="text-6xl pt-4 pl-7">Dashboard</h1>
+          </div>
+
+          <img src="./Settings.svg" alt="" className="mr-14" />
         </div>
         <hr className="w-[90vw] ml-22 text-[#0067FE] border-t-4 border-[#0067FE] rounded-full"/>
       </header>
@@ -93,7 +97,6 @@ export default function Signup() {
           </div>
       </section>
       <footer>
-        <FloatingMenu />
       </footer>
     </div>
   );
