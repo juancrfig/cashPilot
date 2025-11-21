@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { GetJson } from "../apiClient";
 import { useState } from "react";
 import { IUser } from "../Interfaces/IUser";
+import Image from "next/image";
 
 const validateName = (name: string): { isValid: boolean; error?: string } => {
   if (!name || name.trim() === "") {
@@ -297,7 +298,7 @@ export default function Signup() {
     <div>
       <header>
         <div className="flex m-7 ml-[4.5vw] mb-2">
-          <img src="./logo.svg" alt="Logo" /> 
+          <Image src="./logo.svg" alt="Logo" width={170} height={76} priority/>
           <h1 className="text-6xl pt-4 pl-7">Signup</h1>
         </div>
         <hr className="w-[90vw] ml-22 text-[#0067FE] border-t-4 border-[#0067FE] rounded-full"/>

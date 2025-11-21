@@ -1,7 +1,8 @@
 "use client";
+
 import FloatingMenu from "./floatingmenu";
-import Link from "next/link";
 import Swal from "sweetalert2";
+import Image from "next/image";
 
 export default function Signup() {
   const opencomponent = async (component: number) => {
@@ -72,11 +73,10 @@ export default function Signup() {
       <header>
         <div className="flex items-center justify-between m-7 ml-[4.5vw] mb-2">
           <div className="flex items-center">
-            <img src="./logo.svg" alt="" />
+            <Image src="./logo.svg" alt="Logo" width={170} height={76} priority/>
             <h1 className="text-6xl pt-4 pl-7">Dashboard</h1>
           </div>
-
-          <img src="./Settings.svg" alt="" className="mr-14" />
+         <Image src="./Settings.svg" alt="Logo" width={45} height={40} priority className="mr-20"/>
         </div>
         <hr className="w-[90vw] ml-22 text-[#0067FE] border-t-4 border-[#0067FE] rounded-full"/>
       </header>
@@ -97,6 +97,7 @@ export default function Signup() {
           </div>
       </section>
       <footer>
+        <FloatingMenu />
       </footer>
     </div>
   );
