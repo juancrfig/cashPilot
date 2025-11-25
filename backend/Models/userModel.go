@@ -4,6 +4,7 @@ package models
 import (
     "time"
 	"github.com/google/uuid"
+    "gorm.io/gorm"
 )
 
 // Declarar el enum para los estados del usuario, se usa en el campo status de la tabla users
@@ -25,7 +26,7 @@ type Users struct {
     email_verified_at *time.Time    `gorm:"type:timestamp"`
     created_at      time.Time      `gorm:"type:timestamp;not null;default:current_timestamp"`
     updated_at      time.Time      `gorm:"type:timestamp;not null;default:current_timestamp"`
-    deleted_at      *time.Time     `gorm:"type:timestamp;index"` 
+    deleted_at      gorm.DeletedAt  `gorm:"index;default:null"`
 }
 
 type Sessions struct {
