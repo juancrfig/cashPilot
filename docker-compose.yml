@@ -1,12 +1,14 @@
+
 services:
   # PostgreSQL Database Service
-  db:
+  postgres:
     image: postgres:16-alpine
     container_name: local-postgres-db
+    restart: unless-stopped
     environment:
-      POSTGRES_USER: cashPilot
-      POSTGRES_PASSWORD: cashPassword
-      POSTGRES_DB: cashDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: cashpilot_db
     ports:
       - "5432:5432"
     volumes:
