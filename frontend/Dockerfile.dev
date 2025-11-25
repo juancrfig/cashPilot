@@ -1,0 +1,20 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package.json and lockfile
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the source code
+# This will be overwritten by the volume mount,
+# but it's good practice for 'docker build'
+COPY . .
+
+# Expose the dev port
+EXPOSE 3000
+
+# Run the development server
+CMD ["npm", "run", "dev"]
