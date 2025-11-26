@@ -42,3 +42,5 @@ func LoadDSN() string {
 		// "require"
 	)
 }
+// Opcional: puedes usar una URL completa también (más cómodo en Supabase)
+	// dsn := getEnv("DATABASE_URL", dsn) // si prefieres usar DATABASE_URL directamente

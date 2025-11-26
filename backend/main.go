@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"log"
 
-	"cashPilot/backend/Models"
 	"cashPilot/backend/config"
+	"cashPilot/backend/database"
+	"cashPilot/backend/models"
 
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
+
 )
 
 // init() se ejecuta antes del main → carga el .env si existe
@@ -20,21 +20,13 @@ func init() {
 }
 
 func main() {
-	// Variables de entorno con valores por defecto perfectos para desarrollo local
-	dsn := config.LoadDSN()
 
-	// Opcional: puedes usar una URL completa también (más cómodo en Supabase)
-	// dsn := getEnv("DATABASE_URL", dsn) // si prefieres usar DATABASE_URL directamente
+	db := database.Connect()
 
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	if err != nil {
-		log.Fatal("Error conectando a la base de datos:", err)
-	}
-
-	fmt.Println("Conectado a PostgreSQL correctamente!")
+	
 
 	// AutoMigrate
-	err = db.AutoMigrate(
+	err := db.AutoMigrate(
 		&models.Users{},
 		&models.Sessions{},
 		&models.RefreshTokens{},
