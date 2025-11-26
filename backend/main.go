@@ -23,14 +23,21 @@ func main() {
 
 	db := database.Connect()
 
-	
+	db.Exec(`DO $$ BEGIN
+	    CREATE TYPE userstatus AS ENUM ('active', 'inactive');
+	EXCEPTION WHEN duplicate_object THEN NULL;
+	END $$;`)
 
-	// AutoMigrate
-	err := db.AutoMigrate(
-		&models.Users{},
+	err := db.AutoMigrate(&models.Users{})
+	if err != nil {
+		log.Fatal("Error migrando Users:", err)
+	}
+
+	err = db.AutoMigrate(
 		&models.Sessions{},
 		&models.RefreshTokens{},
 	)
+	
 	if err != nil {
 		log.Fatal("Error ejecutando migraciones:", err)
 	}

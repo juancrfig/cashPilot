@@ -8,13 +8,15 @@ import (
 	"gorm.io/gorm"
 )
 
-	// Variables de entorno con valores por defecto perfectos para desarrollo local
-	
-func Connect()*gorm.DB{
+func Connect() *gorm.DB {
 	dsn := config.LoadDSN()
-	db,err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
+		DisableForeignKeyConstraintWhenMigrating: true,
+	})
 	if err != nil {
 		log.Fatalf("connection to db has failed: %v", err)
 	}
+
 	return db
 }
