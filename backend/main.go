@@ -1,12 +1,15 @@
 package main
 
 import (
+	"cashPilot/backend/config"
+    "cashPilot/backend/database"
+    "cashPilot/backend/models"
+    "cashPilot/backend/routes"
 	"fmt"
 	"log"
 
-	"cashPilot/backend/config"
-	"cashPilot/backend/database"
-	"cashPilot/backend/models"
+	"github.com/gin-gonic/gin"
+
 
 
 )
@@ -43,4 +46,11 @@ func main() {
 	}
 
 	fmt.Println("Migraciones ejecutadas correctamente!")
+
+	    r := gin.Default()
+    routes.UserRoutes(r)
+
+    fmt.Println("Servidor corriendo en http://localhost:8080")
+    r.Run(":8080")
+
 }

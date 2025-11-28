@@ -14,6 +14,13 @@ const (
 
 )
 
+type UserInput struct {
+    Email     string `json:"email" binding:"required,email"`
+    Password  string `json:"password" binding:"required,min=6"`
+    FirstName string `json:"first_name"`
+    LastName  string `json:"last_name"`
+}
+
 type Users struct {
     ID              uuid.UUID      `gorm:"type:uuid;primaryKey;default:gen_random_uuid()"`
     Email           string         `gorm:"type:varchar(255);uniqueIndex;not null"`

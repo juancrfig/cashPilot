@@ -1,4 +1,3 @@
-
 services:
   # PostgreSQL Database Service
   postgres:
@@ -14,14 +13,12 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U cashPilot -d cashDB"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d cashpilot_db"]
       interval: 5s
       timeout: 5s
       retries: 5
 
-# -----------------------------------
-# Go Backend Service (for development)
-
+  # Go Backend Service (for development)
   backend:
     container_name: go-backend
     build:
@@ -32,14 +29,12 @@ services:
     volumes:
       - ./backend:/app
     environment:
-      DB_SOURCE: "postgresql://cashPilot:cashPassword@db:5432/cashDB?sslmode=disable"
+      DB_SOURCE: "postgresql://postgres:123456@postgres:5432/cashpilot_db?sslmode=disable"
     depends_on:
-      db:
+      postgres:
         condition: service_healthy
 
-  # --------------------------------------
   # Next.js Frontend Service (for development)
-
   frontend:
     container_name: nextjs-frontend-dev
     build:
@@ -51,7 +46,5 @@ services:
       - ./frontend:/app
       - /app/node_modules
 
-
 volumes:
   postgres-data:
-    
