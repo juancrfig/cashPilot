@@ -1,14 +1,14 @@
 name: Next.js CI Workflow
 
-on: 
+on:
   push:
-    branches: [ "master", "main", "docker", "frontend" ]
+    branches: ["master", "main", "docker", "frontend"]
     paths:
-      - 'frontend/**'
-    pull_request:
-      branches: [ "master", "main", "docker", "frontend" ]
-      paths:
-        - 'frontend/**'
+      - "frontend/**"
+  pull_request:
+    branches: ["master", "main", "docker", "frontend"]
+    paths:
+      - "frontend/**"
 
 jobs:
   build-frontend:
@@ -17,8 +17,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Set working-directory
         run: cd frontend
