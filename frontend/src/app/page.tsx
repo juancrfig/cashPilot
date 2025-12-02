@@ -145,6 +145,8 @@ export default function Home() {
         });
         return;
       }
+      localStorage.setItem("username", usuario.username);
+      localStorage.setItem("email", usuario.email);
 
       Swal.fire({
         title: `Welcome back ${usuario.username}!`,

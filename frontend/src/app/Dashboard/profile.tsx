@@ -1,8 +1,10 @@
 "use client";
 
 import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
 import withReactContent from "sweetalert2-react-content";
-import { createRoot, type Root } from "react-dom/client";
+import { createRoot, Root } from "react-dom/client";
+import ProfileAlert from "./profilealert";
 
 const MySwal = withReactContent(Swal);
 
@@ -13,36 +15,20 @@ export async function openProfile(): Promise<string> {
     html: `<div id="react-alert-root"></div>`,
     background: "#080D33",
     width: '720px',
-    confirmButtonColor: "#3085d6",
+    confirmButtonColor: "#0067FE",
+    confirmButtonText: "Save",
+    customClass: {
+      confirmButton:
+        "text-5xl bg-[#0067FE] text-white py-2 px-20 rounded-3xl",
+    },
+    buttonsStyling: false,
 
     didOpen: () => {
       const rootEl = document.getElementById("react-alert-root");
       if (rootEl) {
         reactRoot = createRoot(rootEl);
-        reactRoot.render(
-          <div className="text-left mb-6">
-            <h1 className="text-5xl ml-5 mb-4 text-white">Name</h1>
-            <input
-              placeholder="Your Name"
-              type="text"
-              className={`mb-2 placeholder:opacity-40 text-5xl w-[41vw] py-3 px-6 bg-[#12193A] rounded-4xl transition-all`}
-            />
-            <h1 className="text-5xl ml-5 mb-4 text-white">Email</h1>
-            <input
-              placeholder="name@email.com"
-              type="email"
-              className={`mb-2 placeholder:opacity-40 text-5xl w-[41vw] py-3 px-6 bg-[#12193A] rounded-4xl transition-all`}
-            />
-            <h1 className="text-5xl ml-5 mb-4 text-white">Currency</h1>
-            <select
-              className="mb-2 placeholder:opacity-90 text-5xl w-[41vw] py-3 px-6 bg-[#12193A] rounded-4xl transition-all"
-            >
-              <option value="">COP</option>
-              <option value="op1">EUR</option>
-              <option value="op2">DOL</option>
-            </select>
-          </div>
-        );
+        reactRoot.render(<ProfileAlert />);
+
         const popupEl = document.querySelector('.swal2-popup') as HTMLElement | null;
         if (popupEl) {
           popupEl.style.background = '#080D33';
@@ -50,7 +36,7 @@ export async function openProfile(): Promise<string> {
           popupEl.style.borderRadius = '5rem';
           popupEl.style.boxShadow = '0 0px 100px rgba(0,103,254)';
           popupEl.style.padding = '1.5rem';
-          popupEl.style.maxWidth = '50vw';
+          popupEl.style.maxWidth = '48vw';
           popupEl.style.width = '100%';
         }
       }

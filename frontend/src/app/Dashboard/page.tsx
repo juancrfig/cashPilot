@@ -1,6 +1,6 @@
 "use client";
 
-import FloatingMenu from "./floatingmenu";
+import ExpandableButton from "./expandablebutton";
 import Swal from "sweetalert2";
 import Image from "next/image";
 import {useState } from "react";
@@ -105,7 +105,7 @@ export default function Signup() {
           </div>
       </section>
       <footer>
-        <FloatingMenu />
+        <ExpandableButton />
       </footer>
     </div>
   );

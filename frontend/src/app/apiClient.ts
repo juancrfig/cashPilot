@@ -24,6 +24,7 @@ export const GetJson = async <T>(categoria: string): Promise<ApiResponse<T>> => 
     const respuesta = await fetch(`${URL_API}${categoria}`, {
       method: "GET",
       headers: getHeaders(),
+      cache: "no-store",
     });
 
     if (respuesta.ok) {
