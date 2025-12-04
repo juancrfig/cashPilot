@@ -10,7 +10,7 @@ export default function ExpandableButton() {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`fixed top-94/100 left-1/2 -translate-x-1/2
+      className={`fixed top-96/100 left-1/2 -translate-x-1/2 -translate-y-97/100
       flex items-center bg-blue-600 rounded-full transition-all duration-300 
       overflow-hidden cursor-pointer
       ${hovered ? "w-[450px] px-4 py-2" : "w-[170px] h-[41px] px-2"}`}
