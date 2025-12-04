@@ -90,17 +90,22 @@ export default function Signup() {
       </header>
       <section className="flex mt-[0.5vw] m-20">
           <div className="">
-            <div onClick={() => opencomponent(1)} className="m-2 rounded-[3vw] w-[55vw] h-[31.4vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(1)} className="m-2 rounded-[3vw] w-[55vw] h-[31.4vw] bg-[#12193A] flex items-center justify-center">
+              <Image src="./Dashboard/Panel.svg" alt="Logo" width={1100} height={100} priority/>
             </div>
-            <div onClick={() => opencomponent(2)} className="m-2 rounded-[3vw] w-[55vw] h-[15.8vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(2)} className="m-2 rounded-[3vw] w-[55vw] h-[15.8vw] bg-[#12193A] flex items-center justify-center">
+              <Image src="./Dashboard/Panel2.svg" alt="Logo" width={1100} height={100} priority/>
             </div>
           </div>
           <div>
-            <div onClick={() => opencomponent(3)} className="m-2 rounded-[3vw] w-[34vw] h-[15.6vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(3)} className="m-2 rounded-[4vw] w-[33vw] h-[15.6vw] bg-[#12193A] flex items-center justify-center">
+              <Image src="/Dashboard/Group1.png" alt="Logo" width={630} height={100} priority/>
             </div>
-            <div onClick={() => opencomponent(4)} className="m-2 rounded-[3vw] w-[34vw] h-[15.6vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(4)} className="m-2 rounded-[4vw] w-[33vw] h-[15.6vw] bg-[#12193A] flex items-center justify-center">
+              <Image src="/Dashboard/Group2.png" alt="Logo" width={630} height={100} priority/>
             </div>
-            <div onClick={() => opencomponent(5)} className="m-2 rounded-[3vw] w-[34vw] h-[15.6vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(5)} className="m-2 rounded-[4vw] w-[33vw] h-[15.6vw] bg-[#12193A] flex items-center justify-center">
+              <Image src="/Dashboard/Group3.png" alt="Logo" width={630} height={100} priority/>
             </div>
           </div>
       </section>
