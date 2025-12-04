@@ -84,23 +84,23 @@ export default function Signup() {
             <Image src="./logo.svg" alt="Logo" width={170} height={76} priority/>
             <h1 className="text-6xl pt-4 pl-7 ">{titulo}</h1>
           </div>
-         <Image src="./Settings.svg" alt="Logo" width={45} height={40} priority className="mr-20" onClick={openprofile}/>
+         <Image src="./Settings.svg" alt="Logo" width={45} height={40} priority className="relative top-0 right-19" onClick={openprofile}/>
         </div>
         <hr className="w-[90vw] ml-22 text-[#0067FE] border-t-4 border-[#0067FE] rounded-full"/>
       </header>
-      <section className="flex mt-[1vw] m-20">
+      <section className="flex mt-[0.5vw] m-20">
           <div className="">
-            <div onClick={() => opencomponent(1)} className="m-2 rounded-[3vw] w-[55vw] h-[32vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(1)} className="m-2 rounded-[3vw] w-[55vw] h-[31.4vw] bg-[#12193A]">
             </div>
-            <div onClick={() => opencomponent(2)} className="m-2 rounded-[3vw] w-[55vw] h-[16vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(2)} className="m-2 rounded-[3vw] w-[55vw] h-[15.8vw] bg-[#12193A]">
             </div>
           </div>
           <div>
-            <div onClick={() => opencomponent(3)} className="m-2 rounded-[3vw] w-[34vw] h-[15.9vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(3)} className="m-2 rounded-[3vw] w-[34vw] h-[15.6vw] bg-[#12193A]">
             </div>
-            <div onClick={() => opencomponent(4)} className="m-2 rounded-[3vw] w-[34vw] h-[15.9vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(4)} className="m-2 rounded-[3vw] w-[34vw] h-[15.6vw] bg-[#12193A]">
             </div>
-            <div onClick={() => opencomponent(5)} className="m-2 rounded-[3vw] w-[34vw] h-[15.9vw] bg-[#12193A]">
+            <div onClick={() => opencomponent(5)} className="m-2 rounded-[3vw] w-[34vw] h-[15.6vw] bg-[#12193A]">
             </div>
           </div>
       </section>
