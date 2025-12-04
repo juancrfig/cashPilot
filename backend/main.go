@@ -11,7 +11,6 @@ import (
 	"github.com/gin-gonic/gin"
 
 
-
 )
 
 // init() se ejecuta antes del main → carga el .env si existe
@@ -21,6 +20,7 @@ func init() {
 		fmt.Println("no se encontro el .env -> se ignorara, error:", err)
 	}
 }
+
 
 func main() {
 
@@ -47,10 +47,18 @@ func main() {
 
 	fmt.Println("Migraciones ejecutadas correctamente!")
 
-	    r := gin.Default()
-    routes.UserRoutes(r)
+    r := gin.Default()
 
-    fmt.Println("Servidor corriendo en http://localhost:8080")
+    // Pasar DB a todas las rutas
+    r.Use(func(c *gin.Context) {
+        c.Set("db", db)
+        c.Next()
+    })
+
+    api := r.Group("/api")
+    routes.AuthRoutes(api, db)
+
     r.Run(":8080")
 
+    fmt.Println("Servidor corriendo en http://localhost:8080")
 }
