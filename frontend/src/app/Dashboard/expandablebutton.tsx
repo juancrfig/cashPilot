@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowBigUp, ArrowBigDown, ClockArrowDown, ClockArrowUp, Plus, ArrowRightLeft} from "lucide-react";
+import Image from "next/image";
+// import { ArrowBigUp, ArrowBigDown, ClockArrowDown, ClockArrowUp, Plus, ArrowRightLeft} from "lucide-react";
 
 export default function ExpandableButton() {
   const [hovered, setHovered] = useState(false);
@@ -25,12 +26,18 @@ export default function ExpandableButton() {
         className={`flex justify-between w-full transition-all duration-300 
         ${hovered ? "opacity-100" : "opacity-0"}`}
       >
-        <ArrowRightLeft size={45} className="text-black bg-white rounded-full p-1" strokeWidth={3} fill="none" />
-        <ClockArrowDown size={45} className="text-teal-300 bg-white rounded-full p-1" strokeWidth={3} fill="none"/>
-        <ArrowBigUp size={45} className="text-teal-300 bg-white rounded-full" strokeWidth={0} fill="currentColor"/>
-        <ArrowBigDown size={45} className="text-red-400 bg-white rounded-full" strokeWidth={0} fill="currentColor" />
-        <ClockArrowUp size={45} className="text-red-400 bg-white rounded-full p-1" strokeWidth={3} fill="none"/>
-        <Plus size={45} className="text-black bg-white rounded-full" strokeWidth={3} fill="none" />
+        <Image src="/Dashboard/Transaction.svg" alt="Logo" width={50} height={10} priority/>
+        <Image src="/Dashboard/Recurrent.svg" alt="Logo" width={50} height={10} priority/>
+        <Image src="/Dashboard/Unique.svg" alt="Logo" width={50} height={10} priority/>
+        <Image src="/Dashboard/UniqueE.svg" alt="Logo" width={50} height={10} priority/>
+        <Image src="/Dashboard/RecurrentE.svg" alt="Logo" width={50} height={10} priority/>
+        <Image src="/Dashboard/New.svg" alt="Logo" width={50} height={10} priority/>
+        {/* <ArrowRightLeft size={45} className="text-[#12193A] bg-white rounded-full p-1" strokeWidth={3} fill="none" />
+        <ClockArrowDown size={45} className="text-[#15E5E7] bg-white rounded-full p-1" strokeWidth={3} fill="none"/>
+        <ArrowBigUp size={45} className="text-[#15E5E7] bg-white rounded-full" strokeWidth={0} fill="currentColor"/>
+        <ArrowBigDown size={45} className="text-[#C01A40] bg-white rounded-full" strokeWidth={0} fill="currentColor" />
+        <ClockArrowUp size={45} className="text-[#C01A40] bg-white rounded-full p-1" strokeWidth={3} fill="none"/>
+        <Plus size={45} className="text-[#12193A] bg-white rounded-full" strokeWidth={3} fill="none" /> */}
       </div>
     </div>
   );
