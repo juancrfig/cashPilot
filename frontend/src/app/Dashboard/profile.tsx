@@ -1,7 +1,6 @@
 "use client";
 
 import Swal from "sweetalert2";
-import { useEffect, useState } from "react";
 import withReactContent from "sweetalert2-react-content";
 import { createRoot, Root } from "react-dom/client";
 import ProfileAlert from "./profilealert";
@@ -9,17 +8,17 @@ import ProfileAlert from "./profilealert";
 const MySwal = withReactContent(Swal);
 
 let reactRoot: Root | null = null;
-let currentSwal: any = null;
+let currentSwal: ReturnType<typeof MySwal.fire> | null = null;
 
 async function checkUnsavedChanges(): Promise<boolean> {
   const usernameAux = localStorage.getItem("usernameaux");
   const emailAux = localStorage.getItem("emailaux");
   const username = localStorage.getItem("username");
   const email = localStorage.getItem("email");
-  const currency = localStorage.getItem("currency")
-  const currenyAux = localStorage.getItem("currencyaux")
+  const currency = localStorage.getItem("currency");
+  const currencyAux = localStorage.getItem("currencyaux"); // Corregido typo
 
-  const hasChanges = (usernameAux !== username) || (emailAux !== email || (currenyAux !== currency));
+  const hasChanges = (usernameAux !== username) || (emailAux !== email) || (currencyAux !== currency);
 
   if (hasChanges) {
     const previousSwal = currentSwal;
@@ -67,7 +66,7 @@ function saveChanges() {
     localStorage.setItem("email", emailAux);
   }
 
-  if (currencyAux != null) {
+  if (currencyAux !== null) {
     localStorage.setItem("currency", currencyAux);
   }
 }
