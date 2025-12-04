@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowBigUp, ArrowBigDown } from "lucide-react";
+import { ArrowBigUp, ArrowBigDown, ClockArrowDown, ClockArrowUp, Plus, ArrowRightLeft} from "lucide-react";
 
 export default function ExpandableButton() {
   const [hovered, setHovered] = useState(false);
@@ -25,12 +25,12 @@ export default function ExpandableButton() {
         className={`flex justify-between w-full transition-all duration-300 
         ${hovered ? "opacity-100" : "opacity-0"}`}
       >
-        <ArrowBigUp size={45} className="text-teal-300 bg-white rounded-full" strokeWidth={0} fill="currentColor"/>
-        <ArrowBigUp size={45} className="text-teal-300 bg-white rounded-full" strokeWidth={0} fill="currentColor"/>
+        <ArrowRightLeft size={45} className="text-black bg-white rounded-full p-1" strokeWidth={3} fill="none" />
+        <ClockArrowDown size={45} className="text-teal-300 bg-white rounded-full p-1" strokeWidth={3} fill="none"/>
         <ArrowBigUp size={45} className="text-teal-300 bg-white rounded-full" strokeWidth={0} fill="currentColor"/>
         <ArrowBigDown size={45} className="text-red-400 bg-white rounded-full" strokeWidth={0} fill="currentColor" />
-        <ArrowBigDown size={45} className="text-red-400 bg-white rounded-full" strokeWidth={0} fill="currentColor" />
-        <ArrowBigDown size={45} className="text-red-400 bg-white rounded-full" strokeWidth={0} fill="currentColor" />
+        <ClockArrowUp size={45} className="text-red-400 bg-white rounded-full p-1" strokeWidth={3} fill="none"/>
+        <Plus size={45} className="text-black bg-white rounded-full" strokeWidth={3} fill="none" />
       </div>
     </div>
   );
